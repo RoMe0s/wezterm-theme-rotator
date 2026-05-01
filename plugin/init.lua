@@ -1,3 +1,5 @@
+math.randomseed(os.time() + os.clock() * 1000)
+
 -- WezTerm Theme Rotator Plugin
 --
 -- A plugin that allows rotating through WezTerm's built-in color schemes
@@ -72,9 +74,6 @@ end
 
 -- Switch to a random theme
 local function random_theme(window)
-    -- Set random seed with integer value
-    math.randomseed(os.time())
-
     -- Ensure we select a different theme than the current one
     local current_theme_index = state.current_index
     local new_index = current_theme_index
