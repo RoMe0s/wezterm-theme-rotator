@@ -48,7 +48,7 @@ local function apply_theme(window, new_index, operation_name)
     local theme_name = state.themes[state.current_index]
 
     window:set_config_overrides({ color_scheme = theme_name })
-    window:toast_notification('WezTerm Theme', operation_name .. ': ' .. theme_name, nil, 4000)
+    -- window:toast_notification('WezTerm Theme', operation_name .. ': ' .. theme_name, nil, 4000)
 end
 
 -----------------------------------------------------------
