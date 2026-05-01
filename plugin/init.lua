@@ -51,14 +51,6 @@ local function apply_theme(window, new_index, operation_name)
 
     window:set_config_overrides({ color_scheme = theme_name })
     -- window:toast_notification('WezTerm Theme', operation_name .. ': ' .. theme_name, nil, 4000)
-
-    -- Оновлюємо статус тільки при зміні теми
-    window:set_right_status(string.format(
-        "%s (%d/%d)",
-        theme_name,
-        state.current_index,
-        #state.themes
-    ))
 end
 
 -----------------------------------------------------------
