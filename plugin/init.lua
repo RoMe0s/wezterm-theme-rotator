@@ -51,6 +51,14 @@ local function apply_theme(window, new_index, operation_name)
 
     window:set_config_overrides({ color_scheme = theme_name })
     -- window:toast_notification('WezTerm Theme', operation_name .. ': ' .. theme_name, nil, 4000)
+
+    -- Оновлюємо статус тільки при зміні теми
+    window:set_right_status(string.format(
+        "%s (%d/%d)",
+        theme_name,
+        state.current_index,
+        #state.themes
+    ))
 end
 
 -----------------------------------------------------------
@@ -189,7 +197,7 @@ function ThemeRotator.apply_to_config(config, options)
     initialize_theme_state(config)
 
     -- Setup status bar updater
-    wezterm.on('update-right-status', update_status)
+    -- wezterm.on('update-right-status', update_status)
 
     -- Setup key bindings
     local keys = setup_key_bindings(options)
