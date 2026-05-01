@@ -51,6 +51,10 @@ local function apply_theme(window, new_index, operation_name)
 
     window:set_config_overrides({ color_scheme = theme_name })
     -- window:toast_notification('WezTerm Theme', operation_name .. ': ' .. theme_name, nil, 4000)
+
+    if state.on_theme_change then
+        state.on_theme_change(window, theme_name)
+    end
 end
 
 -----------------------------------------------------------
@@ -184,6 +188,7 @@ end
 -- Apply configuration to WezTerm
 function ThemeRotator.apply_to_config(config, options)
     options = options or {}
+    state.on_theme_change = options.on_theme_change
 
     -- Initialize theme state
     initialize_theme_state(config)
